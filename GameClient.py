@@ -4,7 +4,7 @@ import time
 
 def client_program():
     print("Connecting to server...")
-    host = "127.0.0.1"  # Server IP
+    host = "192.168.56.1"  # Server IP
     port = 5000
 
     client_socket = socket.socket()
@@ -16,7 +16,7 @@ def client_program():
         return
 
     print("Press SPACE to start the game.")
-    print("Use 'w', 'a', 's', 'd' to move the bucket. Press 'v' to restart or 'q' to quit.")
+    print("Use 'w', 'a', 's', 'd' to move the bucket. Press 'r' to restart or 'q' to quit.")
 
     try:
         while True:
@@ -40,7 +40,7 @@ def client_program():
                     client_socket.send('d'.encode())
                     time.sleep(0.1)
 
-                if keyboard.is_pressed('v'):
+                if keyboard.is_pressed('r'):
                     client_socket.send('restart'.encode())
                     print("Sent: restart")
                     time.sleep(0.5)
